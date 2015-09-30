@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Slab");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-size: 20px;
+  font-family: Josefin Slab;
+  text-align: center; }
+
+.nav-list {
+  list-style-type: none;
+  text-align: center; }
+  .nav-list li {
+    display: inline-block;
+    margin: 0.5em; }
+    .nav-list li a {
+      color: #664C4B;
+      background-color: #FFF560;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: block;
+      padding: 0.5em 1em; }
+      .nav-list li a:hover {
+        background-color: #fff22d; }
+
+.record__preview,
+.record__play {
+  position: relative;
+  height: 80vh;
+  width: 80vh;
+  margin: 0 auto; }
+  .record__preview video,
+  .record__play video {
+    display: block;
+    background-color: #c3c3c3;
+    height: 80vh;
+    width: 80vh; }
+  .record__preview div,
+  .record__play div {
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    padding: 1em;
+    background-color: #fff560; }
+    .record__preview div:hover,
+    .record__play div:hover {
+      background-color: #fff22d; }
+
+.transition__layout-enter {
+  opacity: 0.01; }
+
+.transition__layout-enter.transition__layout-enter-active {
+  opacity: 1;
+  transition: opacity 0.3s ease-in; }
+
+.transition__layout-leave {
+  opacity: 1; }
+
+.transition__layout-leave.transition__layout-leave-active {
+  opacity: 0.01;
+  transition: opacity 0.01s ease-in; }
+

@@ -1,0 +1,40 @@
+{
+  "name": "psi-table",
+  "version": "0.0.1",
+  "main": "app.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "build:js": "browserify client/render_ui.js > dist/script.js",
+    "build:css": "node-sass client/styles/all.scss > dist/style.css",
+    "build": "npm run build:js && npm run build:css",
+    "build:watch": "watch 'npm run build' ."
+  },
+  "author": "sam ternent",
+  "dependencies": {
+    "aws-sdk": "^2.2.4",
+    "babel": "^5.8.23",
+    "body-parser": "^1.14.0",
+    "can-use-dom": "^0.1.0",
+    "coffee-script": "^1.9.3",
+    "coffeeify": "^0.7.0",
+    "connect-ensure-login": "^0.1.1",
+    "cookie-parser": "^1.4.0",
+    "ejs": "^2.3.2",
+    "express": "~4.10.2",
+    "express-session": "^1.11.3",
+    "passport": "^0.3.0",
+    "passport-local": "^1.0.0",
+    "react": "^0.13.1",
+    "reqwest": "^2.0.3",
+    "tbg-flux-factory": "^0.2.0",
+    "xhr": "^2.1.0",
+    "xhr2": "^0.1.3"
+  },
+  "devDependencies": {
+    "mongoose": "^4.1.7",
+    "node-libs-browser": "^0.5.2",
+    "node-sass": "^3.3.3"
+  },
+  "description": "PSI table",
+  "license": "MIT"
+}

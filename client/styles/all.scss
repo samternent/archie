@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-size: 20px;
+  font-family: Josefin Slab;
+  text-align: center;
+}
+
+.nav-list {
+  list-style-type: none;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    margin: 0.5em;
+
+    a {
+      color: #664C4B;
+      background-color: #FFF560;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: block;
+      padding: 0.5em 1em;
+
+      &:hover {
+        background-color: darken(#FFF560, 10);
+      }
+    }
+  }
+}
+
+.record__preview,
+.record__play {
+  position: relative;
+  height: 80vh;
+  width: 80vh;
+  margin: 0 auto;
+  video {
+    display: block;
+    background-color: #c3c3c3;
+    height: 80vh;
+    width: 80vh;
+  }
+  div {
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    padding: 1em;
+    background-color: darken(#FFF560, 0);
+    &:hover { background-color: darken(#FFF560, 10); }
+  }
+}
+
+
+
+.transition__layout-enter {
+  opacity: 0.01;
+}
+
+.transition__layout-enter.transition__layout-enter-active {
+  opacity: 1;
+  transition: opacity .3s ease-in;
+}
+
+.transition__layout-leave {
+  opacity: 1;
+}
+
+.transition__layout-leave.transition__layout-leave-active {
+  opacity: 0.01;
+  transition: opacity .01s ease-in;
+}
