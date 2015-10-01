@@ -6,27 +6,9 @@
 
 body {
   font-size: 20px;
-  font-family: Josefin Slab;
-  text-align: center; }
+  font-family: Josefin Slab; }
 
-.nav-list {
-  list-style-type: none;
-  text-align: center; }
-  .nav-list li {
-    display: inline-block; }
-    .nav-list li a {
-      color: #664C4B;
-      text-decoration: none;
-      text-transform: uppercase;
-      display: block;
-      padding: 0.5em 1em; }
-      .nav-list li a:hover {
-        background-color: #fff22d; }
-
-.icon--archie {
-  background-image: url("archie.svg");
-  background-size: contain;
-  background-position: center;
-  height: 70px;
-  width: 70px; }
+.archie-menu {
+  margin: 0 0 1em;
+  border-bottom: 2px solid #333; }
 

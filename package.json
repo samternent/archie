@@ -3,9 +3,11 @@
   "version": "0.0.1",
   "main": "app.js",
   "scripts": {
-    "start": "node server/app.js",
-    "build:js": "browserify client/render_ui.js > dist/script.js",
-    "build:css": "node-sass client/styles/all.scss > dist/style.css",
+    "start": "nodemon lib/server/app.js",
+    "compile:js": "babel src/ --out-dir lib/",
+    "watch:js": "browserify lib/client/render_ui.js -o dist/bundle.js",
+    "build:js": "npm run compile:js && npm run watch:js",
+    "build:css": "node-sass src/client/styles/all.scss > dist/style.css",
     "build": "npm run build:js && npm run build:css",
     "build:watch": "watch 'npm run build' ."
   },
@@ -24,16 +26,19 @@
     "express-session": "^1.11.3",
     "passport": "^0.3.0",
     "passport-local": "^1.0.0",
-    "react": "^0.13.1",
+    "react": "^0.13.3",
     "reqwest": "^2.0.3",
     "tbg-flux-factory": "^0.2.0",
     "xhr": "^2.1.0",
     "xhr2": "^0.1.3"
   },
   "devDependencies": {
+    "babelify": "^6.3.0",
     "mongoose": "^4.1.7",
     "node-libs-browser": "^0.5.2",
-    "node-sass": "^3.3.3"
+    "node-sass": "^3.3.3",
+    "watch": "^0.16.0",
+    "watchify": "^3.4.0"
   },
   "description": "PSI table",
   "license": "MIT"

@@ -8,6 +8,7 @@ var Nav = React.createFactory(require('./components/nav'));
 
 var layouts = {
   account : React.createFactory(Layouts[ 'account' ]),
+  profile : React.createFactory(Layouts[ 'profile' ]),
   home    : React.createFactory(Layouts[ 'home' ]),
   login   : React.createFactory(Layouts[ 'login' ])
 };
