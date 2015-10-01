@@ -12,11 +12,9 @@ body {
 
   li {
     display: inline-block;
-    margin: 0.5em;
 
     a {
       color: #664C4B;
-      background-color: #FFF560;
       text-decoration: none;
       text-transform: uppercase;
       display: block;
@@ -27,4 +25,13 @@ body {
       }
     }
   }
+}
+
+
+.icon--archie {
+  background-image: url('archie.svg');
+  background-size: contain;
+  background-position: center;
+  height: 70px;
+  width: 70px;
 }

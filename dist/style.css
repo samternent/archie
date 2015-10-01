@@ -13,15 +13,20 @@ body {
   list-style-type: none;
   text-align: center; }
   .nav-list li {
-    display: inline-block;
-    margin: 0.5em; }
+    display: inline-block; }
     .nav-list li a {
       color: #664C4B;
-      background-color: #FFF560;
       text-decoration: none;
       text-transform: uppercase;
       display: block;
       padding: 0.5em 1em; }
       .nav-list li a:hover {
         background-color: #fff22d; }
+
+.icon--archie {
+  background-image: url("archie.svg");
+  background-size: contain;
+  background-position: center;
+  height: 70px;
+  width: 70px; }
 

@@ -9,12 +9,11 @@ var Nav = React.createFactory(require('./components/nav'));
 var layouts = {
   account : React.createFactory(Layouts[ 'account' ]),
   home    : React.createFactory(Layouts[ 'home' ]),
-  login   : React.createFactory(Layouts[ 'login' ]),
-  record  : React.createFactory(Layouts[ 'record' ])
+  login   : React.createFactory(Layouts[ 'login' ])
 };
 
 module.exports = React.createClass({
-  displayName: 'app',
+  displayName: 'archie',
 
   getInitialState: function () {
     return AppStore.getState();

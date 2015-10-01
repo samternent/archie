@@ -6,7 +6,7 @@ require('../shared/flux');
 var Flux = require('tbg-flux-factory');
 var AppStore = Flux.getStore('app');
 
-var ReactApp = React.createFactory(require('../shared/app'));
+var Archie = React.createFactory(require('../shared/app'));
 
 window.addEventListener('popstate', function(e) {
   if (e.state) {
@@ -17,12 +17,12 @@ window.addEventListener('popstate', function(e) {
 
 var RenderUI = function () {
   var doc   = document;
-  var el    = doc.getElementById('ReactApp');
+  var el    = doc.getElementById('archie');
   var route = el.dataset.appRoute;
 
   AppStore.setState({ route: route });
 
-  React.render(ReactApp(), el);
+  React.render(Archie(), el);
 }
 
 module.exports = new RenderUI();

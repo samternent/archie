@@ -9,7 +9,7 @@ var AppStore = Flux.getStore('app');
 
 var passport = require('passport');
 
-var ReactApp  = React.createFactory(require('../../shared/app.js'));
+var Archie  = React.createFactory(require('../../shared/app.js'));
 var fs = require('fs');
 var AWS = require('aws-sdk');
 var zlib = require('zlib');
@@ -17,11 +17,11 @@ var zlib = require('zlib');
 
 var myReactRoute = function (res, route) {
   AppStore.setState({ route: route });
-  var reactApp = React.renderToString( ReactApp() );
+  var archie = React.renderToString( Archie() );
 
   res.render('index.ejs', {
-      ReactApp  : reactApp,
-      Route     : route || 'home'
+      archie   : archie,
+      route    : route || 'home'
     });
 };
 
@@ -71,10 +71,14 @@ module.exports = function (app) {
       res.redirect('/');
     });
 
+  // put these in public
   app.get('/script.js', function (req, res) {
     res.sendfile("./dist/script.js");
   });
   app.get('/style.css', function (req, res) {
     res.sendfile("./dist/style.css");
+  });
+  app.get('/archie.svg', function (req, res) {
+    res.sendfile("./public/archie.svg");
   });
 };
