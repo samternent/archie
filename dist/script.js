@@ -7,7 +7,7 @@ require('../shared/flux');
 var Flux = require('tbg-flux-factory');
 var AppStore = Flux.getStore('app');
 
-var ReactApp = React.createFactory(require('../shared/app'));
+var Archie = React.createFactory(require('../shared/app'));
 
 window.addEventListener('popstate', function(e) {
   if (e.state) {
@@ -18,12 +18,12 @@ window.addEventListener('popstate', function(e) {
 
 var RenderUI = function () {
   var doc   = document;
-  var el    = doc.getElementById('ReactApp');
+  var el    = doc.getElementById('archie');
   var route = el.dataset.appRoute;
 
   AppStore.setState({ route: route });
 
-  React.render(ReactApp(), el);
+  React.render(Archie(), el);
 }
 
 module.exports = new RenderUI();
@@ -22330,12 +22330,11 @@ var Nav = React.createFactory(require('./components/nav'));
 var layouts = {
   account : React.createFactory(Layouts[ 'account' ]),
   home    : React.createFactory(Layouts[ 'home' ]),
-  login   : React.createFactory(Layouts[ 'login' ]),
-  record  : React.createFactory(Layouts[ 'record' ])
+  login   : React.createFactory(Layouts[ 'login' ])
 };
 
 module.exports = React.createClass({
-  displayName: 'app',
+  displayName: 'archie',
 
   getInitialState: function () {
     return AppStore.getState();
@@ -22396,6 +22395,11 @@ module.exports = React.createClass({
 
   render: function () {
     return React.DOM.ul({ className: 'nav-list' },
+      React.DOM.li(null,
+        LocalLink({ route: 'home' },
+          React.DOM.span({ className: 'icon--archie' })
+        )
+      ),
       React.DOM.li(null, LocalLink({ route: 'home' }, 'home')),
       React.DOM.li(null, LocalLink({ route: 'account' }, 'account'))
     );
