@@ -6,11 +6,6 @@ var AppStore = Flux.getStore('app');
 module.exports = React.createClass({
   displayName: 'login',
 
-  _handleLoginClick: function (e) {
-    e.preventDefault();
-    AppStore.Actions.login();
-  },
-
   render: function () {
     return React.DOM.div(null,
       React.DOM.form({ action: "/login", method: "post" },
@@ -22,7 +17,7 @@ module.exports = React.createClass({
           React.DOM.label(null, 'password'),
           React.DOM.input({ type: 'password', name: 'password' })
         ),
-        React.DOM.input({ type: 'submit', value: 'login', onClick: this._handleLoginClick })
+        React.DOM.input({ type: 'submit', value: 'login' })
       )
     );
   }

@@ -9,8 +9,7 @@ module.exports = React.createClass({
   render: function () {
     return React.DOM.ul({ className: 'nav-list' },
       React.DOM.li(null, LocalLink({ route: 'home' }, 'home')),
-      React.DOM.li(null, LocalLink({ route: 'account' }, 'account')),
-      React.DOM.li(null, LocalLink({ route: 'record' }, 'record'))
+      React.DOM.li(null, LocalLink({ route: 'account' }, 'account'))
     );
   }
 });

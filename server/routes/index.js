@@ -34,11 +34,11 @@ module.exports = function (app) {
   // Main app route
   require('./auth')(app);
 
-  app.get('/', function (req, res) {
+  app.get('/',
+  function (req, res) {
     myReactRoute(res, 'home');
   });
   app.get('/home',
-  require('connect-ensure-login').ensureLoggedIn(),
   function (req, res) {
     myReactRoute(res, 'home');
   });
@@ -47,11 +47,7 @@ module.exports = function (app) {
   function (req, res) {
     myReactRoute(res, 'account');
   });
-  app.get('/record',
-  require('connect-ensure-login').ensureLoggedIn(),
-  function (req, res) {
-    myReactRoute(res, 'record');
-  });
+
   app.get('/login', function (req, res) {
     myReactRoute(res, 'login');
   });
@@ -63,27 +59,6 @@ module.exports = function (app) {
     });
 
 
-  app.post('/api/video', function (req, res) {
-    var buf = new Buffer(req.body.blob, 'base64'); // decode
-
-    var S3_KEY = 'AKIAJXDOTPJHXQNEUDHA';
-    var S3_SECRET = '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';
-    var S3_BUCKET = 'the-album';
-    var S3_REGION = 'eu-west-1';
-
-    var body = fs.createReadStream(buf).pipe(zlib.createGzip());
-    var s3obj = new AWS.S3({params: {Bucket: S3_BUCKET, Key: S3_KEY, Region: S3_REGION, Secret: S3_SECRET }});
-    s3obj.upload({Body: body}).
-      on('httpUploadProgress', function(evt) { console.log(evt); }).
-      send(function(err, data) { console.log(err, data) });
-      // fs.writeFile("public/test1.webm", buf, function(err) {
-      //   if(err) {
-      //     console.log("err", err);
-      //   } else {
-      //     return res.json({'status': 'success'});
-      //   }
-      // })
-  });
 
   app.get('/api/video/:id', function (req, res) {
     var id = req.params.id
@@ -94,12 +69,6 @@ module.exports = function (app) {
     function(req, res){
       req.logout();
       res.redirect('/');
-    });
-
-  app.get('/profile',
-    require('connect-ensure-login').ensureLoggedIn(),
-    function(req, res){
-      res.render('profile', { user: req.user });
     });
 
   app.get('/script.js', function (req, res) {

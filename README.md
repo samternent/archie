@@ -2,9 +2,10 @@
 ###TODO:
  - watchers
  - high order login protected component
- - client login
+ - async client login
  - server / client flux bridge
- 
+ - refactor components to es6 classes
+
 
 ```javascript
 $ npm install
