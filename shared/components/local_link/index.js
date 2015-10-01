@@ -6,17 +6,6 @@ var app  = Flux.getStore('app');
 module.exports = React.createClass({
   displayName: 'LocalLink',
 
-  componentWillMount: function () {
-    app.addChangeListener(this._onAppChange);
-  },
-  componentWillUnmount: function () {
-    app.removeChangeListener(this._onAppChange);
-  },
-
-  _onAppChange: function () {
-    // app.Actions.setRoute({ route: this.props.route });
-  },
-
   _handleClick: function (e) {
     e.preventDefault();
 

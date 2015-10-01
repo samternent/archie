@@ -13,8 +13,6 @@ var layouts = {
   record  : React.createFactory(Layouts[ 'record' ])
 };
 
-var ReactCSSTransitionGroup = React.createFactory(React.addons.CSSTransitionGroup);
-
 module.exports = React.createClass({
   displayName: 'app',
 
@@ -37,9 +35,7 @@ module.exports = React.createClass({
 
     return React.DOM.div(null,
       Nav(),
-      ReactCSSTransitionGroup({ transitionName: 'transition__layout' },
-        this._renderLayout()
-      )
+      this._renderLayout()
     );
   }
 });
