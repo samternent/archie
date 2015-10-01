@@ -1,7 +1,7 @@
 # archie.
 ###TODO:
  - watchers
- - high order routing component
+ - high order login protected component
  - client login
  - server / client flux bridge
  
