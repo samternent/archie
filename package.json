@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon lib/server/app.js",
+    "start": "node lib/server/app.js",
     "compile:js": "babel src/ --out-dir lib/",
     "watch:js": "browserify lib/client/render_ui.js -o dist/bundle.js",
     "build:js": "npm run compile:js && npm run watch:js",

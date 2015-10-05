@@ -11,12 +11,10 @@ module.exports = React.createClass({
       LocalLink({ className: 'pure-menu-heading', route: 'home' },
         React.DOM.span({ className: 'icon--archie' }, 'archie.')
       ),
-      React.DOM.ul({ className: 'pure-menu-list' },
+      React.DOM.ul({ className: 'pure-menu-list archie-menu-items' },
         React.DOM.li({ className: 'pure-menu-item archie-menu-item' },
           LocalLink({ className: 'pure-menu-link', route: 'profile' }, 'profile')
-        )
-      ),
-      React.DOM.ul({ className: 'pure-menu-list' },
+        ),
         React.DOM.li({ className: 'pure-menu-item archie-menu-item' },
           LocalLink({ className: 'pure-menu-link', route: 'account' }, 'account')
         )
