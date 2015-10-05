@@ -8,6 +8,13 @@ body {
   font-size: 20px;
   font-family: Josefin Slab; }
 
+.contain {
+  max-width: 960px;
+  margin: 0 auto; }
+
+.content {
+  padding: 1em; }
+
 .archie-menu {
   margin: 0 0 1em;
   border-bottom: 2px solid #333;

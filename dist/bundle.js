@@ -105,7 +105,7 @@ module.exports = React.createClass({
   displayName: 'Nav',
 
   render: function render() {
-    return React.DOM.div({ className: 'pure-menu pure-menu-horizontal archie-menu' }, LocalLink({ className: 'pure-menu-heading', route: 'home' }, React.DOM.span({ className: 'icon--archie' }, 'archie.')), React.DOM.ul({ className: 'pure-menu-list archie-menu-items' }, React.DOM.li({ className: 'pure-menu-item archie-menu-item' }, LocalLink({ className: 'pure-menu-link', route: 'profile' }, 'profile')), React.DOM.li({ className: 'pure-menu-item archie-menu-item' }, LocalLink({ className: 'pure-menu-link', route: 'account' }, 'account'))));
+    return React.DOM.div({ className: 'pure-menu pure-menu-horizontal archie-menu' }, React.DOM.div({ className: 'contain' }, LocalLink({ className: 'pure-menu-heading', route: 'home' }, React.DOM.span({ className: 'icon--archie' }, 'archie.')), React.DOM.ul({ className: 'pure-menu-list archie-menu-items' }, React.DOM.li({ className: 'pure-menu-item archie-menu-item' }, LocalLink({ className: 'pure-menu-link', route: 'profile' }, 'profile')), React.DOM.li({ className: 'pure-menu-item archie-menu-item' }, LocalLink({ className: 'pure-menu-link', route: 'account' }, 'account')))));
   }
 });
 },{"../local_link":3,"react":184}],5:[function(require,module,exports){
@@ -144,7 +144,7 @@ module.exports = React.createClass({
   displayName: 'account',
 
   render: function render() {
-    return React.DOM.div(null, 'this is the account page layout');
+    return React.DOM.div({ className: 'contain content' }, 'this is the account page layout');
   }
 });
 },{"react":184}],8:[function(require,module,exports){
@@ -155,7 +155,7 @@ var React = require('react');
 module.exports = React.createClass({
   displayName: 'home',
   render: function render() {
-    return React.DOM.div(null, 'Just a simple test of routing and VERY basic recording');
+    return React.DOM.div({ className: 'contain content' }, 'Just a simple test of routing and VERY basic recording');
   }
 });
 },{"react":184}],9:[function(require,module,exports){
@@ -179,7 +179,7 @@ module.exports = React.createClass({
   displayName: 'login',
 
   render: function render() {
-    return React.DOM.div(null, React.DOM.form({ className: 'pure-form', action: "/login", method: "post" }, React.DOM.div(null, React.DOM.input({ placeholder: 'email', type: 'text', name: 'username' })), React.DOM.div(null, React.DOM.input({ placeholder: 'password', type: 'password', name: 'password' })), React.DOM.input({ className: 'pure-button pure-button-primary', type: 'submit', value: 'login' })));
+    return React.DOM.div({ className: 'contain content' }, React.DOM.form({ className: 'pure-form', action: "/login", method: "post" }, React.DOM.div(null, React.DOM.input({ placeholder: 'email', type: 'text', name: 'username' })), React.DOM.div(null, React.DOM.input({ placeholder: 'password', type: 'password', name: 'password' })), React.DOM.input({ className: 'pure-button pure-button-primary', type: 'submit', value: 'login' })));
   }
 });
 },{"react":184,"tbg-flux-factory":187}],11:[function(require,module,exports){
@@ -191,7 +191,7 @@ module.exports = React.createClass({
   displayName: 'account',
 
   render: function render() {
-    return React.DOM.div(null, 'this is the profile page layout');
+    return React.DOM.div({ className: 'contain content' }, 'this is the profile page layout');
   }
 });
 },{"react":184}],12:[function(require,module,exports){
@@ -22791,69 +22791,39 @@ function isUndefined(arg) {
 // shim for using process in browser
 
 var process = module.exports = {};
+var queue = [];
+var draining = false;
 
-process.nextTick = (function () {
-    var canSetImmediate = typeof window !== 'undefined'
-    && window.setImmediate;
-    var canMutationObserver = typeof window !== 'undefined'
-    && window.MutationObserver;
-    var canPost = typeof window !== 'undefined'
-    && window.postMessage && window.addEventListener
-    ;
-
-    if (canSetImmediate) {
-        return function (f) { return window.setImmediate(f) };
+function drainQueue() {
+    if (draining) {
+        return;
     }
-
-    var queue = [];
-
-    if (canMutationObserver) {
-        var hiddenDiv = document.createElement("div");
-        var observer = new MutationObserver(function () {
-            var queueList = queue.slice();
-            queue.length = 0;
-            queueList.forEach(function (fn) {
-                fn();
-            });
-        });
-
-        observer.observe(hiddenDiv, { attributes: true });
-
-        return function nextTick(fn) {
-            if (!queue.length) {
-                hiddenDiv.setAttribute('yes', 'no');
-            }
-            queue.push(fn);
-        };
+    draining = true;
+    var currentQueue;
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        var i = -1;
+        while (++i < len) {
+            currentQueue[i]();
+        }
+        len = queue.length;
     }
-
-    if (canPost) {
-        window.addEventListener('message', function (ev) {
-            var source = ev.source;
-            if ((source === window || source === null) && ev.data === 'process-tick') {
-                ev.stopPropagation();
-                if (queue.length > 0) {
-                    var fn = queue.shift();
-                    fn();
-                }
-            }
-        }, true);
-
-        return function nextTick(fn) {
-            queue.push(fn);
-            window.postMessage('process-tick', '*');
-        };
+    draining = false;
+}
+process.nextTick = function (fun) {
+    queue.push(fun);
+    if (!draining) {
+        setTimeout(drainQueue, 0);
     }
-
-    return function nextTick(fn) {
-        setTimeout(fn, 0);
-    };
-})();
+};
 
 process.title = 'browser';
 process.browser = true;
 process.env = {};
 process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
 
 function noop() {}
 
@@ -22874,5 +22844,6 @@ process.cwd = function () { return '/' };
 process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
+process.umask = function() { return 0; };
 
 },{}]},{},[1]);
