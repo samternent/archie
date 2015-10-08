@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Slab');
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+
+$yellow: #e6af4b;
+$orange: #e05038;
+$pink: #f2cbbc;
+$dark: #334431;
+
 body {
   font-size: 20px;
   font-family: Josefin Slab;
@@ -11,13 +17,46 @@ body {
 }
 .content {
   padding: 1em;
+  min-height: 1000px;
 }
+
+.archie__logo { display: none; }
 .archie-menu {
-  margin: 0 0 1em;
-  border-bottom: 2px solid #333;
+  left: 0; right: 0; bottom: 0;
+  background-color: rgba($yellow, 0.9);
+  border-bottom: 4px solid $dark;
   overflow: auto;
-  margin: 0 auto;
+  position: fixed;
 }
 .archie-menu-items {
-  float: right;
+  float: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 1;
+  justify-content: space-around;
+  list-style-type: none;
+}
+.archie-menu-item {
+  &:hover {
+    background-color: $orange;
+  }
+  a { padding: 1em; display: block; color: $dark; text-decoration: none; }
+}
+
+@media all and (min-width: 640px) {
+  .content {
+    margin-top: 3em;
+  }
+  .archie-menu-items { float: right; }
+  .archie-menu {
+    top: 0;
+    bottom: auto;
+  }
+  .archie__logo {
+    display: inline-block;
+    padding: 1em;
+    color: $dark;
+    text-decoration: none;
+  }
 }

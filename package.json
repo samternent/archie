@@ -1,5 +1,5 @@
 {
-  "name": "psi-table",
+  "name": "archie",
   "version": "0.0.1",
   "main": "app.js",
   "scripts": {
@@ -40,6 +40,6 @@
     "watch": "^0.16.0",
     "watchify": "^3.4.0"
   },
-  "description": "PSI table",
+  "description": "Archie is a JS project boilerplate",
   "license": "MIT"
 }
