@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Slab');
+@import url('https://fonts.googleapis.com/css?family=Bigelow+Rules');
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 
@@ -8,7 +10,7 @@ $pink: #f2cbbc;
 $dark: #334431;
 
 body {
-  font-size: 20px;
+  font-size: 30px;
   font-family: Josefin Slab;
 }
 .contain {
@@ -22,6 +24,8 @@ body {
 
 .archie__logo { display: none; }
 .archie-menu {
+  // font-family: 'Bigelow Rules', cursive;
+  // font-size: 1.25em;
   left: 0; right: 0; bottom: 0;
   background-color: rgba($yellow, 0.9);
   border-bottom: 4px solid $dark;
@@ -37,26 +41,24 @@ body {
   justify-content: space-around;
   list-style-type: none;
 }
+.archie__logo,
 .archie-menu-item {
+  transition: all 0.3s;
   &:hover {
-    background-color: $orange;
+    background-color: $dark;
+    a { color: $pink; }
   }
-  a { padding: 1em; display: block; color: $dark; text-decoration: none; }
+  a { padding: 0.25em 0.75em; display: block; color: $dark; text-decoration: none; }
 }
 
 @media all and (min-width: 640px) {
   .content {
-    margin-top: 3em;
+    margin-top: 2em;
   }
+  .archie__logo { display: inline-block; }
   .archie-menu-items { float: right; }
   .archie-menu {
     top: 0;
     bottom: auto;
-  }
-  .archie__logo {
-    display: inline-block;
-    padding: 1em;
-    color: $dark;
-    text-decoration: none;
   }
 }
