@@ -7,17 +7,17 @@ module.exports = React.createClass({
 
 
   render: function () {
-    return React.DOM.div({ className: 'pure-menu pure-menu-horizontal archie-menu' },
+    return React.DOM.div({ className: 'archie-menu' },
       React.DOM.div({ className: 'contain' },
-        LocalLink({ className: 'pure-menu-heading', route: 'home' },
+        LocalLink({ className: 'archie__logo', route: 'home' },
           React.DOM.span({ className: 'icon--archie' }, 'archie.')
         ),
-        React.DOM.ul({ className: 'pure-menu-list archie-menu-items' },
-          React.DOM.li({ className: 'pure-menu-item archie-menu-item' },
-            LocalLink({ className: 'pure-menu-link', route: 'profile' }, 'profile')
+        React.DOM.ul({ className: 'archie-menu-items' },
+          React.DOM.li({ className: 'archie-menu-item' },
+            LocalLink({ className: '', route: 'profile' }, 'profile')
           ),
-          React.DOM.li({ className: 'pure-menu-item archie-menu-item' },
-            LocalLink({ className: 'pure-menu-link', route: 'account' }, 'account')
+          React.DOM.li({ className: 'archie-menu-item' },
+            LocalLink({ className: '', route: 'account' }, 'account')
           )
         )
       )
