@@ -105,7 +105,7 @@ module.exports = React.createClass({
   displayName: 'Nav',
 
   render: function render() {
-    return React.DOM.div({ className: 'archie-menu' }, React.DOM.div({ className: 'contain' }, LocalLink({ className: 'archie__logo', route: 'home' }, React.DOM.span({ className: 'icon--archie' }, 'archie.')), React.DOM.ul({ className: 'archie-menu-items' }, React.DOM.li({ className: 'archie-menu-item' }, LocalLink({ className: '', route: 'profile' }, 'profile')), React.DOM.li({ className: 'archie-menu-item' }, LocalLink({ className: '', route: 'account' }, 'account')))));
+    return React.DOM.div({ className: 'archie-menu' }, React.DOM.div({ className: 'contain' }, React.DOM.div({ className: 'archie__logo' }, LocalLink({ className: '', route: 'home' }, 'archie.')), React.DOM.ul({ className: 'archie-menu-items' }, React.DOM.li({ className: 'archie-menu-item' }, LocalLink({ className: '', route: 'profile' }, 'profile')), React.DOM.li({ className: 'archie-menu-item' }, LocalLink({ className: '', route: 'account' }, 'account')))));
   }
 });
 },{"../local_link":3,"react":184}],5:[function(require,module,exports){
@@ -144,7 +144,7 @@ module.exports = React.createClass({
   displayName: 'account',
 
   render: function render() {
-    return React.DOM.div({ className: 'contain content' }, 'this is the account page layout');
+    return React.DOM.div({ className: 'contain content' }, React.DOM.h1(null, 'Account'), React.DOM.p(null, "My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. You understand? "));
   }
 });
 },{"react":184}],8:[function(require,module,exports){
@@ -155,7 +155,7 @@ var React = require('react');
 module.exports = React.createClass({
   displayName: 'home',
   render: function render() {
-    return React.DOM.div({ className: 'contain content' }, 'Just a simple test of routing and VERY basic recording');
+    return React.DOM.div({ className: 'contain content' }, React.DOM.h1(null, 'Archie Home Page'), React.DOM.p(null, 'this is the home page of my archiio framework'));
   }
 });
 },{"react":184}],9:[function(require,module,exports){
@@ -191,7 +191,7 @@ module.exports = React.createClass({
   displayName: 'account',
 
   render: function render() {
-    return React.DOM.div({ className: 'contain content' }, 'this is the profile page layout');
+    return React.DOM.div({ className: 'contain content' }, React.DOM.h1(null, 'Profile'), React.DOM.p(null, "Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?"));
   }
 });
 },{"react":184}],12:[function(require,module,exports){

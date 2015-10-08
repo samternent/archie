@@ -9,8 +9,8 @@ module.exports = React.createClass({
   render: function () {
     return React.DOM.div({ className: 'archie-menu' },
       React.DOM.div({ className: 'contain' },
-        LocalLink({ className: 'archie__logo', route: 'home' },
-          React.DOM.span({ className: 'icon--archie' }, 'archie.')
+        React.DOM.div({ className: 'archie__logo' },
+          LocalLink({ className: '', route: 'home' }, 'archie.')
         ),
         React.DOM.ul({ className: 'archie-menu-items' },
           React.DOM.li({ className: 'archie-menu-item' },

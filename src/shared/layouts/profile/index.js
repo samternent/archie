@@ -5,7 +5,8 @@ module.exports = React.createClass({
 
   render: function () {
     return React.DOM.div({ className: 'contain content' },
-      'this is the profile page layout'
+        React.DOM.h1(null, 'Profile'),
+        React.DOM.p(null, "Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?")
       );
   }
 });
