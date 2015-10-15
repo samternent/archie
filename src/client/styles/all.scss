@@ -1,17 +1,29 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin+Slab');
-@import url('https://fonts.googleapis.com/css?family=Bigelow+Rules');
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,700,800,200);
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 
 $yellow: #e6af4b;
+$red: #BF5D5E;
 $orange: #e05038;
-$pink: #f2cbbc;
+$light: #D8D7D3;
 $dark: #334431;
 
+.red { color: $red; }
+
+@mixin font-style($size, $weight, $color) {
+  font-family: 'Raleway', sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  color: $color;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 800;
+}
+
 body {
-  font-size: 30px;
-  font-family: Josefin Slab;
+  @include font-style(20px, 400, $dark);
 }
 .contain {
   max-width: 960px;
@@ -20,17 +32,20 @@ body {
 .content {
   padding: 1em;
   min-height: 1000px;
+  font-weight: 200;
 }
 
-.archie__logo { display: none; }
+.archie__logo { float: left; }
+.archie__logo__text { display: none; }
+.archie__logo__icon { margin-right: 1em; }
 .archie-menu {
-  // font-family: 'Bigelow Rules', cursive;
-  // font-size: 1.25em;
+  min-height: 2em;
+  box-shadow: 0px 1px 3px 1px rgba($dark, 0.3), inset rgba(255, 255, 255, 0.2) 0 1px 1px;
   left: 0; right: 0; bottom: 0;
-  background-color: rgba($yellow, 0.9);
-  border-bottom: 4px solid $dark;
+  background-color: rgba($light, 0.9);
   overflow: auto;
   position: fixed;
+  @include font-style(1em, 100, $dark);
 }
 .archie-menu-items {
   float: left;
@@ -45,8 +60,7 @@ body {
 .archie-menu-item {
   transition: all 0.3s;
   &:hover {
-    background-color: $dark;
-    a { color: $pink; }
+    a { color: darken($dark,10); }
   }
   a { padding: 0.25em 0.75em; display: block; color: $dark; text-decoration: none; }
 }
@@ -55,10 +69,21 @@ body {
   .content {
     margin-top: 2em;
   }
-  .archie__logo { display: inline-block; }
+  .archie__logo { float: none; display: inline-block; }
+  .archie__logo__text { display: inline-block; }
   .archie-menu-items { float: right; }
   .archie-menu {
     top: 0;
     bottom: auto;
+  }
+}
+@media all and (min-width: 960px) {
+  .content {
+    margin-top: 3em;
+  }
+  .archie__logo { font-size: 2em; margin-top: -1em; }
+  .archie-menu {
+    height: 3em;
+    padding-top: 1em;
   }
 }

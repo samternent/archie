@@ -1,13 +1,20 @@
-@import url("https://fonts.googleapis.com/css?family=Josefin+Slab");
-@import url("https://fonts.googleapis.com/css?family=Bigelow+Rules");
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,700,800,200);
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
 
+.red {
+  color: #BF5D5E; }
+
+h1, h2, h3, h4, h5 {
+  font-weight: 800; }
+
 body {
-  font-size: 30px;
-  font-family: Josefin Slab; }
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #334431; }
 
 .contain {
   max-width: 960px;
@@ -15,19 +22,31 @@ body {
 
 .content {
   padding: 1em;
-  min-height: 1000px; }
+  min-height: 1000px;
+  font-weight: 200; }
 
 .archie__logo {
+  float: left; }
+
+.archie__logo__text {
   display: none; }
 
+.archie__logo__icon {
+  margin-right: 1em; }
+
 .archie-menu {
+  min-height: 2em;
+  box-shadow: 0px 1px 3px 1px rgba(51, 68, 49, 0.3), inset rgba(255, 255, 255, 0.2) 0 1px 1px;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(230, 175, 75, 0.9);
-  border-bottom: 4px solid #334431;
+  background-color: rgba(216, 215, 211, 0.9);
   overflow: auto;
-  position: fixed; }
+  position: fixed;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  font-size: 1em;
+  color: #334431; }
 
 .archie-menu-items {
   float: left;
@@ -41,12 +60,9 @@ body {
 .archie__logo,
 .archie-menu-item {
   transition: all 0.3s; }
-  .archie__logo:hover,
-  .archie-menu-item:hover {
-    background-color: #334431; }
-    .archie__logo:hover a,
-    .archie-menu-item:hover a {
-      color: #f2cbbc; }
+  .archie__logo:hover a,
+  .archie-menu-item:hover a {
+    color: #1d261c; }
   .archie__logo a,
   .archie-menu-item a {
     padding: 0.25em 0.75em;
@@ -58,10 +74,23 @@ body {
   .content {
     margin-top: 2em; }
   .archie__logo {
+    float: none;
+    display: inline-block; }
+  .archie__logo__text {
     display: inline-block; }
   .archie-menu-items {
     float: right; }
   .archie-menu {
     top: 0;
     bottom: auto; } }
+
+@media all and (min-width: 960px) {
+  .content {
+    margin-top: 3em; }
+  .archie__logo {
+    font-size: 2em;
+    margin-top: -1em; }
+  .archie-menu {
+    height: 3em;
+    padding-top: 1em; } }
 

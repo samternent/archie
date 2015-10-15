@@ -105,7 +105,7 @@ module.exports = React.createClass({
   displayName: 'Nav',
 
   render: function render() {
-    return React.DOM.div({ className: 'archie-menu' }, React.DOM.div({ className: 'contain' }, React.DOM.div({ className: 'archie__logo' }, LocalLink({ className: '', route: 'home' }, 'archie.')), React.DOM.ul({ className: 'archie-menu-items' }, React.DOM.li({ className: 'archie-menu-item' }, LocalLink({ className: '', route: 'profile' }, 'profile')), React.DOM.li({ className: 'archie-menu-item' }, LocalLink({ className: '', route: 'account' }, 'account')))));
+    return React.DOM.div({ className: 'archie-menu' }, React.DOM.div({ className: 'contain' }, React.DOM.div({ className: 'archie__logo' }, LocalLink({ className: '', route: 'home' }, React.DOM.i({ className: 'fa fa-heart red archie__logo__icon' }), React.DOM.span({ className: 'archie__logo__text' }, 'archie.'))), React.DOM.ul({ className: 'archie-menu-items' }, React.DOM.li({ className: 'archie-menu-item' }, LocalLink({ className: '', route: 'profile' }, 'profile')), React.DOM.li({ className: 'archie-menu-item' }, LocalLink({ className: '', route: 'account' }, 'account')))));
   }
 });
 },{"../local_link":3,"react":184}],5:[function(require,module,exports){
@@ -155,7 +155,7 @@ var React = require('react');
 module.exports = React.createClass({
   displayName: 'home',
   render: function render() {
-    return React.DOM.div({ className: 'contain content' }, React.DOM.h1(null, 'Archie Home Page'), React.DOM.p(null, 'this is the home page of my archiio framework'));
+    return React.DOM.div({ className: 'contain content' }, React.DOM.h1(null, 'Archie Home Page'), React.DOM.p(null, 'this is the home page of my archie framework'));
   }
 });
 },{"react":184}],9:[function(require,module,exports){
